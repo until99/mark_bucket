@@ -1,6 +1,5 @@
 header {
   height: 5rem;
-  border-bottom: 1px solid #eee;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -26,7 +25,6 @@ main {
   min-height: calc(100dvh - 5rem);
 }
 main table {
-  border-collapse: collapse;
   width: 100%;
 }
 main table th,
@@ -38,8 +36,8 @@ main table td:not(:last-child) {
   border-right: 1px solid #eee;
 }
 main table th {
-  background-color: rgb(232.9, 232.9, 232.9);
-  color: black;
+  background-color: #242729;
+  color: white;
 }
 main table tr td:nth-child(5) {
   text-align: center;
@@ -99,12 +97,12 @@ dialog {
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
-  border: 2px solid #ccc;
+  background-color: #242729;
+  box-shadow: 0 0 30px -20px white;
   border-radius: 0.5rem;
+  border: none;
   z-index: 200;
 }
 dialog button {
@@ -128,6 +126,7 @@ dialog .container {
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
+  color: white;
 }
 dialog .close-button {
   background-color: transparent;
@@ -145,14 +144,17 @@ dialog form {
   gap: 1rem;
 }
 dialog form label {
+  color: white;
   font-size: small;
 }
 dialog form input,
 dialog form textarea {
-  border: 1px solid #ccc;
+  border: 1px solid white;
+  color: white;
   border-radius: 0.5rem;
   padding: 0.5rem;
   font-size: 1rem;
+  background-color: transparent;
 }
 dialog form input:focus,
 dialog form textarea:focus {

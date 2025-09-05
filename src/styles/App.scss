@@ -30,7 +30,6 @@ $default-color: blue;
 
 header {
   height: 5rem;
-  border-bottom: 1px solid #eee;
 
   display: flex;
   justify-content: space-around;
@@ -45,7 +44,6 @@ main {
   min-height: calc(100dvh - 5rem); // 5rem header + 5rem footer
 
   table {
-    border-collapse: collapse;
     width: 100%;
 
     th,
@@ -58,8 +56,8 @@ main {
     }
 
     th {
-      background-color: darken(#eee, 2%);
-      color: black;
+      background-color: #242729;
+      color: white;
     }
 
     tr {
@@ -105,14 +103,14 @@ dialog {
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
 
   margin-left: $margin;
   margin-right: $margin;
 
-  background-color: white;
-  border: 2px solid #ccc;
+  background-color: #242729;
+  box-shadow: 0 0 30px -20px white;
   border-radius: 0.5rem;
+  border: none;
 
   z-index: 200;
 
@@ -125,6 +123,7 @@ dialog {
     align-items: center;
     justify-content: space-between;
     gap: 3rem;
+    color: white;
   }
 
   .close-button {
@@ -147,15 +146,18 @@ dialog {
     gap: 1rem;
 
     label {
+      color: white;
       font-size: small;
     }
 
     input,
     textarea {
-      border: 1px solid #ccc;
+      border: 1px solid white;
+      color: white;
       border-radius: 0.5rem;
       padding: 0.5rem;
       font-size: 1rem;
+      background-color: transparent;
 
       &:focus {
         border-color: darken(#ccc, 10%);

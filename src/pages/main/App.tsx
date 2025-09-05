@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../../public/stylesheets/App.css";
 import supabase from "../../services/api/supabase";
 import type { Product } from "../../services/api/supabase";
+import { XIcon } from "@phosphor-icons/react";
 
 function App() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -131,12 +132,12 @@ function App() {
         <dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
           <div className="container">
             <h2>Adicionar Produto</h2>
-            <button
-              className="close-button"
+            <XIcon
               onClick={() => setIsDialogOpen(false)}
-            >
-              X
-            </button>
+              cursor="pointer"
+              color="white"
+              size={16}
+            />
           </div>
 
           <form onSubmit={handleAddProduct}>
