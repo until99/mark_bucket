@@ -5,7 +5,8 @@ header {
   align-items: center;
 }
 header button {
-  height: 3rem;
+  height: 5rem;
+  width: 10rem;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -65,7 +66,8 @@ footer {
   z-index: 100;
 }
 footer button.add-button {
-  height: 3rem;
+  height: 5rem;
+  width: 10rem;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -83,7 +85,8 @@ footer button.add-button:focus {
   outline: 2px solid #0000cc;
 }
 footer button.cancel-button {
-  height: 3rem;
+  height: 5rem;
+  width: 10rem;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -101,7 +104,8 @@ footer button.cancel-button:focus {
   outline: 2px solid #cc0000;
 }
 footer button.confirm-button {
-  height: 3rem;
+  height: 5rem;
+  width: 10rem;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -133,8 +137,13 @@ dialog {
   border: none;
   z-index: 200;
 }
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+}
 dialog button {
-  height: 3rem;
+  height: 5rem;
+  width: 10rem;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -193,7 +202,8 @@ dialog form textarea:focus {
   border-color: rgb(178.5, 178.5, 178.5);
 }
 dialog form button {
-  height: 3rem;
+  height: 5rem;
+  width: 10rem;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -213,7 +223,6 @@ dialog form button:focus {
 dialog form button {
   margin: 0 auto;
   width: 90%;
-  height: 5rem;
   margin-top: 3rem;
 }
 dialog form .input-group {

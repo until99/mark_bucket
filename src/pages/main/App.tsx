@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../../public/stylesheets/App.css";
 import supabase from "../../services/api/supabase";
 import type { Product } from "../../services/api/supabase";
 import { XIcon } from "@phosphor-icons/react";
 
 function App() {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState<number[]>([]);
   const [initialSelectedCheckboxes, setInitialSelectedCheckboxes] = useState<
     number[]
   >([]);
   const [productsList, setProductsList] = useState<Product[]>([]);
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   const handleCheckboxChange = (id: number, checked: boolean) => {
     let updated;
@@ -116,7 +116,7 @@ function App() {
 
     // Limpar o formulário e fechar o modal
     form.reset();
-    setIsDialogOpen(false);
+    closeDialog();
 
     // Recarregar a lista de produtos
     await fetchProducts();
@@ -126,17 +126,25 @@ function App() {
     fetchProducts();
   }, []);
 
+  const openDialog = () => {
+    dialogRef.current?.showModal();
+  };
+
+  const closeDialog = () => {
+    dialogRef.current?.close();
+  };
+
   return (
     <>
       <header>
         <h1>Mark Bucket</h1>
       </header>
       <main>
-        <dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
+        <dialog ref={dialogRef} onClose={closeDialog}>
           <div className="container">
             <h2>Adicionar Produto</h2>
             <XIcon
-              onClick={() => setIsDialogOpen(false)}
+              onClick={closeDialog}
               cursor="pointer"
               color="white"
               size={32}
@@ -243,7 +251,7 @@ function App() {
             </button>
           </>
         ) : (
-          <button className="add-button" onClick={() => setIsDialogOpen(true)}>
+          <button className="add-button" onClick={openDialog}>
             Adicionar
           </button>
         )}
