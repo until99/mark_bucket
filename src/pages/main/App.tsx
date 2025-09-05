@@ -28,7 +28,10 @@ function App() {
   };
 
   const fetchProducts = async () => {
-    const { data, error } = await supabase.from("products").select("*");
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("purchased", false);
     if (error) {
       console.error("Erro ao buscar produtos:", error);
       return;
@@ -49,16 +52,14 @@ function App() {
         .sort((a, b) => a.id - b.id)
     );
 
-    const purchasedItems = data
-      .filter((item) => item.purchased)
-      .map((item) => item.id);
-    setSelectedCheckboxes(purchasedItems);
-    setInitialSelectedCheckboxes(purchasedItems);
+    // Como só carregamos produtos não comprados, inicializar vazios
+    setSelectedCheckboxes([]);
+    setInitialSelectedCheckboxes([]);
     setIsFooterVisible(false);
   };
 
   const handleConfirm = async () => {
-    // Marcar como comprados apenas os selecionados
+    // Marcar como comprado no banco de dados
     if (selectedCheckboxes.length > 0) {
       const { error } = await supabase
         .from("products")
@@ -71,11 +72,11 @@ function App() {
       }
     }
 
-    // Remover itens selecionados da exibição da tabela
-    const filteredProducts = productsList.filter(
+    // Remover os itens selecionados da lista local (mas não do banco)
+    const updatedList = productsList.filter(
       (product) => !selectedCheckboxes.includes(product.id)
     );
-    setProductsList(filteredProducts);
+    setProductsList(updatedList);
 
     // Resetar estados
     setSelectedCheckboxes([]);
@@ -86,6 +87,34 @@ function App() {
   const handleCancel = () => {
     setSelectedCheckboxes(initialSelectedCheckboxes);
     setIsFooterVisible(false);
+  };
+
+  const handleAddProduct = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const productData = {
+      name: formData.get("nome") as string,
+      quantity: parseInt(formData.get("quantidade") as string),
+      brand: formData.get("marca") as string,
+      price: parseFloat(formData.get("preco") as string),
+      purchased: false,
+    };
+
+    const { error } = await supabase.from("products").insert([productData]);
+
+    if (error) {
+      console.error("Erro ao adicionar produto:", error);
+      return;
+    }
+
+    // Limpar o formulário e fechar o modal
+    form.reset();
+    setIsDialogOpen(false);
+
+    // Recarregar a lista de produtos
+    await fetchProducts();
   };
 
   useEffect(() => {
@@ -110,14 +139,14 @@ function App() {
             </button>
           </div>
 
-          <form>
+          <form onSubmit={handleAddProduct}>
             <div className="input-group">
               <label htmlFor="nome">Nome *</label>
               <input type="text" id="nome" name="nome" required />
             </div>
 
             <div className="input-group">
-              <label htmlFor="quantidade">Quantidade *</label>
+              <label htmlFor="quantidade">Qtd *</label>
               <input
                 type="number"
                 id="quantidade"
@@ -152,7 +181,7 @@ function App() {
           <thead>
             <tr>
               <th>Produto</th>
-              <th>Quantidade</th>
+              <th>Qtd</th>
               <th>Marca</th>
               <th>Preço</th>
               <th>Comprado</th>
