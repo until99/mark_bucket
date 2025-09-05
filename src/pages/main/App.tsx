@@ -136,7 +136,7 @@ function App() {
               onClick={() => setIsDialogOpen(false)}
               cursor="pointer"
               color="white"
-              size={16}
+              size={32}
             />
           </div>
 

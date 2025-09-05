@@ -8,6 +8,7 @@ $default-color: blue;
   $text-color,
   $amount: 15%
 ) {
+  height: 3rem;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -99,6 +100,7 @@ footer {
 dialog {
   $margin: auto;
 
+  width: 80%;
   position: fixed;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -124,6 +126,7 @@ dialog {
     justify-content: space-between;
     gap: 3rem;
     color: white;
+    font-size: x-large;
   }
 
   .close-button {
@@ -147,7 +150,7 @@ dialog {
 
     label {
       color: white;
-      font-size: small;
+      font-size: x-large;
     }
 
     input,
@@ -158,6 +161,7 @@ dialog {
       padding: 0.5rem;
       font-size: 1rem;
       background-color: transparent;
+      height: 3rem;
 
       &:focus {
         border-color: darken(#ccc, 10%);
@@ -168,7 +172,6 @@ dialog {
       @include default-button-component($default-color, $default-color, #ffff);
       margin: 0 auto;
       width: 80%;
-      height: 2.5rem;
     }
 
     .input-group {
