@@ -170,7 +170,6 @@ function App() {
                 name="preco"
                 pattern="^\d+(\.\d{1,2})?$"
                 inputMode="decimal"
-                required
                 placeholder="Ex: 10.99"
               />
             </div>
