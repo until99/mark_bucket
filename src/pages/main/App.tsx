@@ -91,7 +91,7 @@ function App() {
 
   const handleAddProduct = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
+
     const form = event.currentTarget;
     const formData = new FormData(form);
     const productData = {
