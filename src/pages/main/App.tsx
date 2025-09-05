@@ -95,11 +95,15 @@ function App() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+
+    const priceValue = formData.get("preco") as string;
+    const parsedPrice = parseFloat(priceValue);
+
     const productData = {
       name: formData.get("nome") as string,
       quantity: parseInt(formData.get("quantidade") as string),
       brand: formData.get("marca") as string,
-      price: parseFloat(formData.get("preco") as string),
+      price: isNaN(parsedPrice) ? 0 : parsedPrice,
       purchased: false,
     };
 
@@ -126,7 +130,6 @@ function App() {
     <>
       <header>
         <h1>Mark Bucket</h1>
-        <button onClick={() => setIsDialogOpen(true)}>Adicionar</button>
       </header>
       <main>
         <dialog open={isDialogOpen} onClose={() => setIsDialogOpen(false)}>
@@ -195,7 +198,7 @@ function App() {
                 element.name,
                 element.quantity,
                 element.brand,
-                `R$ ${element.price.toFixed(2)}`,
+                `R$ ${element.price ? element.price.toFixed(2) : "0.00"}`,
               ];
 
               return (
@@ -229,16 +232,22 @@ function App() {
           </tbody>
         </table>
       </main>
-      {isFooterVisible && (
-        <footer>
-          <button onClick={handleCancel} className="cancel-button">
-            Cancelar
+      <footer>
+        {isFooterVisible ? (
+          <>
+            <button onClick={handleCancel} className="cancel-button">
+              Cancelar
+            </button>
+            <button onClick={handleConfirm} className="confirm-button">
+              Confirmar
+            </button>
+          </>
+        ) : (
+          <button className="add-button" onClick={() => setIsDialogOpen(true)}>
+            Adicionar
           </button>
-          <button onClick={handleConfirm} className="confirm-button">
-            Confirmar
-          </button>
-        </footer>
-      )}
+        )}
+      </footer>
     </>
   );
 }

@@ -86,17 +86,23 @@ footer {
   justify-content: center;
   align-items: center;
 
+  padding-bottom: 3rem;
+
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   z-index: 100;
 
-  button:nth-child(1) {
+  button.add-button {
+    @include default-button-component($default-color, $default-color, #ffff);
+  }
+
+  button.cancel-button {
     @include default-button-component($cancel-color, $cancel-color, #ffff);
   }
 
-  button:nth-child(2) {
+  button.confirm-button {
     @include default-button-component($confirm-color, $confirm-color, #ffff);
   }
 }
