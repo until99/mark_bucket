@@ -1,0 +1,178 @@
+$confirm-color: green;
+$cancel-color: red;
+$default-color: blue;
+
+@mixin default-button-component(
+  $bg-color,
+  $border-color,
+  $text-color,
+  $amount: 15%
+) {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+
+  background-color: $bg-color;
+  color: $text-color;
+
+  outline: none;
+  border: none;
+
+  &:hover {
+    background-color: darken($bg-color, $amount);
+  }
+
+  &:focus {
+    outline: 2px solid darken($bg-color, 10%);
+  }
+}
+
+header {
+  height: 5rem;
+  border-bottom: 1px solid #eee;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  button {
+    @include default-button-component($default-color, $default-color, #ffff);
+  }
+}
+
+main {
+  min-height: calc(100dvh - 5rem); // 5rem header + 5rem footer
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    td {
+      padding: 0.5rem 1rem;
+
+      &:not(:last-child) {
+        border-right: 1px solid #eee;
+      }
+    }
+
+    th {
+      background-color: darken(#eee, 2%);
+      color: black;
+    }
+
+    tr {
+      td:nth-child(5) {
+        text-align: center;
+
+        input[type="checkbox"] {
+          background-color: red;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: transparent;
+  height: 5rem;
+
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+
+  button:nth-child(1) {
+    @include default-button-component($cancel-color, $cancel-color, #ffff);
+  }
+
+  button:nth-child(2) {
+    @include default-button-component($confirm-color, $confirm-color, #ffff);
+  }
+}
+
+dialog {
+  $margin: auto;
+
+  position: fixed;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+
+  margin-left: $margin;
+  margin-right: $margin;
+
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+
+  z-index: 200;
+
+  button {
+    @include default-button-component($default-color, $default-color, #ffff);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .close-button {
+    background-color: transparent;
+
+    border: none;
+    border-radius: 0;
+
+    color: black;
+    cursor: pointer;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    label {
+      font-size: small;
+    }
+
+    input,
+    textarea {
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+
+      &:focus {
+        border-color: darken(#ccc, 10%);
+      }
+    }
+
+    button {
+      @include default-button-component($default-color, $default-color, #ffff);
+      margin: 0 auto;
+      width: 80%;
+      height: 2.5rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}

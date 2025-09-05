@@ -1,0 +1,188 @@
+header {
+  height: 5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header button {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: blue;
+  color: white;
+  outline: none;
+  border: none;
+}
+header button:hover {
+  background-color: rgb(0, 0, 178.5);
+}
+header button:focus {
+  outline: 2px solid #0000cc;
+}
+
+main {
+  min-height: calc(100dvh - 5rem);
+}
+main table {
+  border-collapse: collapse;
+  width: 100%;
+}
+main table th,
+main table td {
+  padding: 0.5rem 1rem;
+}
+main table th:not(:last-child),
+main table td:not(:last-child) {
+  border-right: 1px solid #eee;
+}
+main table th {
+  background-color: rgb(232.9, 232.9, 232.9);
+  color: black;
+}
+main table tr td:nth-child(5) {
+  text-align: center;
+}
+main table tr td:nth-child(5) input[type=checkbox] {
+  background-color: red;
+}
+
+footer {
+  background-color: transparent;
+  height: 5rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+footer button:nth-child(1) {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: red;
+  color: white;
+  outline: none;
+  border: none;
+}
+footer button:nth-child(1):hover {
+  background-color: rgb(178.5, 0, 0);
+}
+footer button:nth-child(1):focus {
+  outline: 2px solid #cc0000;
+}
+footer button:nth-child(2) {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: green;
+  color: white;
+  outline: none;
+  border: none;
+}
+footer button:nth-child(2):hover {
+  background-color: rgb(0, 51.5, 0);
+}
+footer button:nth-child(2):focus {
+  outline: 2px solid #004d00;
+}
+
+dialog {
+  position: fixed;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+  z-index: 200;
+}
+dialog button {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: blue;
+  color: white;
+  outline: none;
+  border: none;
+}
+dialog button:hover {
+  background-color: rgb(0, 0, 178.5);
+}
+dialog button:focus {
+  outline: 2px solid #0000cc;
+}
+dialog .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+dialog .close-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: black;
+  cursor: pointer;
+}
+dialog .close-button:hover {
+  background-color: transparent;
+}
+dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+dialog form label {
+  font-size: small;
+}
+dialog form input,
+dialog form textarea {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+dialog form input:focus,
+dialog form textarea:focus {
+  border-color: rgb(178.5, 178.5, 178.5);
+}
+dialog form button {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: blue;
+  color: white;
+  outline: none;
+  border: none;
+}
+dialog form button:hover {
+  background-color: rgb(0, 0, 178.5);
+}
+dialog form button:focus {
+  outline: 2px solid #0000cc;
+}
+dialog form button {
+  margin: 0 auto;
+  width: 80%;
+  height: 2.5rem;
+}
+dialog form .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/*# sourceMappingURL=App.css.map */
