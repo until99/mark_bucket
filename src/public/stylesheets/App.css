@@ -9,11 +9,12 @@ header button {
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   background-color: blue;
   color: white;
   outline: none;
   border: none;
+  font-size: large;
 }
 header button:hover {
   background-color: rgb(0, 0, 178.5);
@@ -24,9 +25,11 @@ header button:focus {
 
 main {
   min-height: calc(100dvh - 5rem);
+  padding-top: 2rem;
 }
 main table {
   width: 100%;
+  font-size: large;
 }
 main table th,
 main table td {
@@ -65,11 +68,12 @@ footer button:nth-child(1) {
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   background-color: red;
   color: white;
   outline: none;
   border: none;
+  font-size: large;
 }
 footer button:nth-child(1):hover {
   background-color: rgb(178.5, 0, 0);
@@ -82,11 +86,12 @@ footer button:nth-child(2) {
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   background-color: green;
   color: white;
   outline: none;
   border: none;
+  font-size: large;
 }
 footer button:nth-child(2):hover {
   background-color: rgb(0, 51.5, 0);
@@ -114,11 +119,12 @@ dialog button {
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   background-color: blue;
   color: white;
   outline: none;
   border: none;
+  font-size: large;
 }
 dialog button:hover {
   background-color: rgb(0, 0, 178.5);
@@ -172,11 +178,12 @@ dialog form button {
   border-radius: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   background-color: blue;
   color: white;
   outline: none;
   border: none;
+  font-size: large;
 }
 dialog form button:hover {
   background-color: rgb(0, 0, 178.5);
@@ -186,7 +193,9 @@ dialog form button:focus {
 }
 dialog form button {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
+  height: 5rem;
+  margin-top: 3rem;
 }
 dialog form .input-group {
   display: flex;

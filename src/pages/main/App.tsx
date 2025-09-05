@@ -64,7 +64,7 @@ function App() {
     if (selectedCheckboxes.length > 0) {
       const { error } = await supabase
         .from("products")
-        .update({ purchased: true })
+        .update({ purchased: true, updated_at: new Date() })
         .in("id", selectedCheckboxes);
 
       if (error) {
