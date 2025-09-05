@@ -170,7 +170,7 @@ function App() {
 
             <div className="input-group">
               <label htmlFor="marca">Marca</label>
-              <input type="text" id="marca" name="marca" required />
+              <input type="text" id="marca" name="marca" />
             </div>
 
             <div className="input-group">
