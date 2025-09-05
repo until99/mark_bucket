@@ -163,7 +163,7 @@ function App() {
             </div>
 
             <div className="input-group">
-              <label htmlFor="preco">Preço *</label>
+              <label htmlFor="preco">Preço</label>
               <input
                 type="text"
                 id="preco"
